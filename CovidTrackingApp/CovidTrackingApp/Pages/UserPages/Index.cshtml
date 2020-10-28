@@ -65,12 +65,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td class="flex-column">
+            <td class="flex-row">
                 <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a>
-            </td>
-            <td>
-                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
             </td>
             <td>
                 <a class="btn btn-success" asp-page="./Booking" asp-route-id="@item.UserId">Book A Venue</a>
