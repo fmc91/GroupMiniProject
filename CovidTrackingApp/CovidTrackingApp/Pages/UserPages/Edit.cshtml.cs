@@ -12,9 +12,9 @@ namespace CovidTrackingApp.Pages.Users
 {
     public class EditModel : PageModel
     {
-        private readonly CovidTrackingApp.Data.CovidTrackerContext _context;
+        private readonly CovidTrackingApp.Data.CovidTrackingContext _context;
 
-        public EditModel(CovidTrackingApp.Data.CovidTrackerContext context)
+        public EditModel(CovidTrackingApp.Data.CovidTrackingContext context)
         {
             _context = context;
         }

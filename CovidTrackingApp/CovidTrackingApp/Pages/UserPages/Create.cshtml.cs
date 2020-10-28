@@ -11,9 +11,9 @@ namespace CovidTrackingApp.Pages.Users
 {
     public class CreateModel : PageModel
     {
-        private readonly CovidTrackingApp.Data.CovidTrackerContext _context;
+        private readonly CovidTrackingApp.Data.CovidTrackingContext _context;
 
-        public CreateModel(CovidTrackingApp.Data.CovidTrackerContext context)
+        public CreateModel(CovidTrackingApp.Data.CovidTrackingContext context)
         {
             _context = context;
         }

@@ -11,9 +11,9 @@ namespace CovidTrackingApp.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        private readonly CovidTrackingApp.Data.CovidTrackerContext _context;
+        private readonly CovidTrackingApp.Data.CovidTrackingContext _context;
 
-        public DetailsModel(CovidTrackingApp.Data.CovidTrackerContext context)
+        public DetailsModel(CovidTrackingApp.Data.CovidTrackingContext context)
         {
             _context = context;
         }

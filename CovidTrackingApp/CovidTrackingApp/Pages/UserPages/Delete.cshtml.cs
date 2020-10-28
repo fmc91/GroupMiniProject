@@ -11,9 +11,9 @@ namespace CovidTrackingApp.Pages.Users
 {
     public class DeleteModel : PageModel
     {
-        private readonly CovidTrackingApp.Data.CovidTrackerContext _context;
+        private readonly CovidTrackingApp.Data.CovidTrackingContext _context;
 
-        public DeleteModel(CovidTrackingApp.Data.CovidTrackerContext context)
+        public DeleteModel(CovidTrackingApp.Data.CovidTrackingContext context)
         {
             _context = context;
         }
