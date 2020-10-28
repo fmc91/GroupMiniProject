@@ -1,0 +1,79 @@
+﻿@page
+@model CovidTrackingApp.Pages.Users.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>All Users</h1>
+
+<p>
+    <a asp-page="Create">Create New User</a>
+</p>*@
+<div style="display:inline">
+    <h1 style="float:left">All Users</h1>
+    <a class="btn btn-success" style="float:right" asp-page="Create">Create New User</a>
+</div>
+<table class="table justify-content-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+        <tr>
+            <td>
+                @item.ToString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td class="flex-row">
+                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+            <td>
+                <a class="btn btn-success" asp-page="../UserCheckIn/Create" asp-route-id="@item.UserId">Book A Venue</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
