@@ -30,16 +30,18 @@
             @foreach (Venue v in Model.Venues)
             {
                 <tr>
-                    <td>@Html.DisplayNameFor(model => v.VenueName)</td>
-                    <td>@Html.DisplayNameFor(model => v.Capacity)</td>
-                    <td>@Html.DisplayNameFor(model => v.Address)</td>
-                    <td>@Html.DisplayNameFor(model => v.City)</td>
-                    <td>@Html.DisplayNameFor(model => v.Website)</td>
+                    <td>@Html.DisplayFor(model => v.VenueName)</td>
+                    <td>@Html.DisplayFor(model => v.Capacity)</td>
+                    <td>@Html.DisplayFor(model => v.Address)</td>
+                    <td>@Html.DisplayFor(model => v.City)</td>
+                    <td>@Html.DisplayFor(model => v.Website)</td>
                     <td>
                         <a asp-page="details" asp-route-venueId="@v.VenueId">Details</a> |
                         <a asp-page="edit" asp-route-venueId="@v.VenueId">Edit</a> |
-                        <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a>
-                        <a asp-page="../Check-In/Index" asp-route-venueId="@v.VenueId">View Bookings</a>
+                        <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a> |
+                    </td>
+                    <td>
+                        <a class="btn btn-success" asp-page="../Check-In/Index" asp-route-venueId="@v.VenueId">View Bookings</a>
                     </td>
                 </tr>
             }
