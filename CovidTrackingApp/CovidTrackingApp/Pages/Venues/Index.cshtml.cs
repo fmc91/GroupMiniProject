@@ -18,6 +18,8 @@ namespace CovidTrackingApp.Pages.Venues
             _db = context;
         }
 
+        public bool IsViewFiltered { get; set; }
+
         public List<Venue> Venues { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
@@ -35,6 +37,8 @@ namespace CovidTrackingApp.Pages.Venues
                 .Where(v => v.VenueName.Contains(venueName))
                 .OrderBy(v => v.VenueName)
                 .ToListAsync();
+
+            IsViewFiltered = true;
 
             return Page();
         }
