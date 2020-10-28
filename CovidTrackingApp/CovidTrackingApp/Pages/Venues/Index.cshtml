@@ -1,0 +1,47 @@
+﻿@page "{handler?}"
+@using CovidTrackingApp.Data
+@model CovidTrackingApp.Pages.Venues.IndexModel
+
+@{
+}
+
+<div class="container">
+
+    <form asp-page-handler="filter" method="get">
+        <div class="form-row mb-2">
+            <input type="text" placeholder="Venue Name" class="form-control col-3 mr-2" name="venueName"/>
+            <input type="submit" class="btn btn-primary col-1" value="Filter"/>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>Venue Name</th>
+                <th>Capacity</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Website</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (Venue v in Model.Venues)
+            {
+                <tr>
+                    <td>@v.VenueName</td>
+                    <td>@v.Capacity</td>
+                    <td>@v.Address</td>
+                    <td>@v.City</td>
+                    <td>@v.Website</td>
+                    <td>
+                        <a asp-page="details" asp-route-venueId="@v.VenueId">Details</a> |
+                        <a asp-page="edit" asp-route-venueId="@v.VenueId">Edit</a> |
+                        <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
