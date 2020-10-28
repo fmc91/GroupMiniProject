@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CovidTrackingApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace CovidTrackingApp.Pages.Venues
 {
@@ -17,6 +18,7 @@ namespace CovidTrackingApp.Pages.Venues
             _db = context;
         }
 
+        [BindProperty]
         public Venue SelectedVenue { get; set; }
 
         public async Task<IActionResult> OnGet(int venueId)
@@ -28,6 +30,14 @@ namespace CovidTrackingApp.Pages.Venues
 
             else
                 return Page();
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            _db.Entry(SelectedVenue).State = EntityState.Modified;
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("./Details", new { venueId = SelectedVenue.VenueId });
         }
     }
 }

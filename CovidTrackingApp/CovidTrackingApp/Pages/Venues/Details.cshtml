@@ -4,6 +4,10 @@
 @{
 }
 
+<h1>Details</h1>
+<h4>Venue</h4>
+<hr/>
+
 <dl>
     <dt>
         @Html.DisplayNameFor(model => model.SelectedVenue.VenueId)
@@ -51,6 +55,12 @@
         @Html.DisplayNameFor(model => model.SelectedVenue.Website)
     </dt>
     <dd>
-        @Html.DisplayFor(model => model.SelectedVenue.VenueId)
+        @Html.DisplayFor(model => model.SelectedVenue.Website)
     </dd>
 </dl>
+
+<div class="my-2">
+    <a role="button" class="btn btn-primary" asp-page="edit" asp-route-venueId="@Model.SelectedVenue.VenueId">Edit</a>
+    <a role="button" class="btn btn-danger" asp-page="delete" asp-route-venueId="@Model.SelectedVenue.VenueId">Delete</a>
+</div>
+<a asp-page="index">All venues</a>

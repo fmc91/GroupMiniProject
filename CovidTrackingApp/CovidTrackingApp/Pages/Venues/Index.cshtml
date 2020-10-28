@@ -17,11 +17,11 @@
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
-                <th>Venue Name</th>
-                <th>Capacity</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>Website</th>
+                <th>@Html.DisplayNameFor(model => model.Venues[0].VenueName)</th>
+                <th>@Html.DisplayNameFor(model => model.Venues[0].Capacity)</th>
+                <th>@Html.DisplayNameFor(model => model.Venues[0].Address)</th>
+                <th>@Html.DisplayNameFor(model => model.Venues[0].City)</th>
+                <th>@Html.DisplayNameFor(model => model.Venues[0].Website)</th>
                 <th></th>
             </tr>
         </thead>
@@ -30,11 +30,11 @@
             @foreach (Venue v in Model.Venues)
             {
                 <tr>
-                    <td>@v.VenueName</td>
-                    <td>@v.Capacity</td>
-                    <td>@v.Address</td>
-                    <td>@v.City</td>
-                    <td>@v.Website</td>
+                    <td>@Html.DisplayNameFor(model => v.VenueName)</td>
+                    <td>@Html.DisplayNameFor(model => v.Capacity)</td>
+                    <td>@Html.DisplayNameFor(model => v.Address)</td>
+                    <td>@Html.DisplayNameFor(model => v.City)</td>
+                    <td>@Html.DisplayNameFor(model => v.Website)</td>
                     <td>
                         <a asp-page="details" asp-route-venueId="@v.VenueId">Details</a> |
                         <a asp-page="edit" asp-route-venueId="@v.VenueId">Edit</a> |
