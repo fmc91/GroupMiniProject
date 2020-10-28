@@ -20,12 +20,12 @@ namespace CovidTrackingApp.Pages.Check_In
 
         public IList<Booking> Booking { get;set; }
 
-        public async Task OnGetAsync(int Id)
+        public async Task OnGetAsync(int? venueId)
         {
 
             Booking = await _context.Booking
                 .Include(b => b.User)
-                .Include(b => b.Venue).Where(x => x.VenueId == Id).ToListAsync();
+                .Include(b => b.Venue).Where(x => x.VenueId == venueId).ToListAsync();
         }
     }
 }
