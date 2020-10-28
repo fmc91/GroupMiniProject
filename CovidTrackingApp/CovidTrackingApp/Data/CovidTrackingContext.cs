@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CovidTrackingApp.Data
 {
-    public class CovidTrackerContext : DbContext
+    public class CovidTrackingContext : DbContext
     {
-        public CovidTrackerContext(DbContextOptions options) : base(options)
+        public CovidTrackingContext(DbContextOptions options) : base(options)
         {
         }
 
