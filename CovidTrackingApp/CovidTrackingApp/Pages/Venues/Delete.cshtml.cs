@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CovidTrackingApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 
 namespace CovidTrackingApp.Pages.Venues
 {
@@ -26,8 +27,20 @@ namespace CovidTrackingApp.Pages.Venues
             if (SelectedVenue == null)
                 return NotFound();
 
-            else
-                return Page();
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPost(int venueId)
+        {
+            Venue venue = _db.Venue.Find(venueId);
+
+            if (venue == null)
+                return NotFound();
+
+            _db.Venue.Remove(venue);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
         }
     }
 }
