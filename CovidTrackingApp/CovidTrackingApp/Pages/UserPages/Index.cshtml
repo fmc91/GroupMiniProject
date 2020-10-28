@@ -5,19 +5,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@*<h1>All Users</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+    <a asp-page="Create">Create New User</a>
+</p>*@
+<div style="display:inline">
+    <h1 style="float:left">All Users</h1>
+    <a class="btn btn-success" style="float:right" asp-page="Create">Create New User</a>
+</div>
+<table class="table justify-content-center">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].LastName)
+                @Html.DisplayNameFor(model => model.User)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.User[0].Email)
@@ -44,10 +45,7 @@
 @foreach (var item in Model.User) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
+                @item.ToString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
@@ -67,10 +65,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
-            <td>
+            <td class="flex-column">
                 <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+            <td>
+                <a class="btn btn-success" asp-page="./Booking" asp-route-id="@item.UserId">Book A Venue</a>
             </td>
         </tr>
 }
