@@ -68,9 +68,11 @@
             <td class="flex-row">
                 <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                <a class="fas fa-trash-alt" asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
             </td>
             <td>
+                <a class="fas fa-trash-alt" asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+
                 <a class="btn btn-success" asp-page="../Check-In/Create" asp-route-id="@item.UserId">Book A Venue</a>
             </td>
         </tr>
