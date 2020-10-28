@@ -46,7 +46,41 @@ namespace CovidTrackingApp.Data
                         ArrivalTime = new TimeSpan(11, 30, 00),
                         DepartureTime = new TimeSpan(16, 00, 00),
                         BookingDate = new DateTime(2020, 10, 29)
+                    },
+                    new Booking
+                    {
+                        UserId = 3,
+                        VenueId = 4,
+                        ArrivalTime = new TimeSpan(11, 30, 00),
+                        DepartureTime = new TimeSpan(16, 00, 00),
+                        BookingDate = new DateTime(2020, 10, 29)
+                    },
+                    new Booking
+                    {
+                        UserId = 3,
+                        VenueId = 3,
+                        ArrivalTime = new TimeSpan(13, 30, 00),
+                        DepartureTime = new TimeSpan(15, 00, 00),
+                        BookingDate = new DateTime(2020, 10, 29)
+                    },
+                    new Booking
+                    {
+                        UserId = 4,
+                        VenueId = 1,
+                        ArrivalTime = new TimeSpan(16, 30, 00),
+                        DepartureTime = new TimeSpan(19, 00, 00),
+                        BookingDate = new DateTime(2020, 10, 29)
+                    },
+                    new Booking
+                    {
+                        UserId = 4,
+                        VenueId = 4,
+                        ArrivalTime = new TimeSpan(9, 30, 00),
+                        DepartureTime = new TimeSpan(10, 00, 00),
+                        BookingDate = new DateTime(2020, 10, 27)
                     }
+
+
                 );
                 context.SaveChanges();
             }
