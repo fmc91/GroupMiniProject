@@ -1,0 +1,57 @@
+﻿@page
+@model CovidTrackingApp.Pages.UserPages.SelectModel
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1>User Booking History</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].ArrivalTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].BookingDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Venue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Booking)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Venue.VenueName)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
