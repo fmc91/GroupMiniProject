@@ -5,6 +5,8 @@
     ViewData["Title"] = "Create";
 }
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <h1> Create Check-In</h1>
 
 <hr />
@@ -14,22 +16,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Booking.User" class="control-label"></label>
-                <select asp-for="Booking.User.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+                <select asp-for="Booking.User.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.Venue.VenueName" class="control-label"></label>
-                <select asp-for="Booking.Venue.VenueName" class ="form-control" asp-items="ViewBag.VenueName"></select>
+                <select asp-for="Booking.Venue.VenueName" class="form-control" asp-items="ViewBag.VenueName"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.ArrivalTime" class="control-label"></label>
-                <button asp-for="Booking.ArrivalTime" class="btn-control">Arrival Time</button>
-                <input asp-for="Booking.ArrivalTime" class="form-control" />
+                <button id="ArrivalTime" asp-for="Booking.ArrivalTime" class="btn-control">Arrival Time</button>
+                <input id="ArrivalTimeHolder" asp-for="Booking.ArrivalTime" class="form-control"/>
                 <span asp-validation-for="Booking.ArrivalTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Booking.DepartureTime" class="control-label"></label>
-                <button asp-for="Booking.DepartureTime" class="btn-control">Get Time</button>
-                <input asp-for="Booking.DepartureTime" class="form-control" />
+                <button id="DepartureTime" asp-for="Booking.DepartureTime" class="btn-control">Get Time</button>
+                <input id="DepartureTimeHolder" asp-for="Booking.DepartureTime" class="form-control" />
                 <span asp-validation-for="Booking.DepartureTime" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -47,6 +49,32 @@
 <div>
     <a asp-page="Index">Back to List</a>
 </div>
+
+<script>
+    $(
+        function () {
+
+            $('#ArrivalTime').click(function () {
+                var time = new Date()
+                $('#ArrivalTimeHolder').val(time.toLocaleTimeString());
+            });
+
+        }
+    );
+
+    $(
+        function () {
+
+            $('#DepartureTime').click(function () {
+                var time = new Date()
+                $('#DepartureTimeHolder').val(time.toLocaleTimeString());
+            });
+
+        }
+    );
+
+</script>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
