@@ -22,7 +22,11 @@ namespace CovidTrackingApp.Pages.Check_In
 
         public async Task OnGetAsync(int? venueId)
         {
-
+            if(venueId == null) {
+                Booking = await _context.Booking
+            .Include(b => b.User)
+            .Include(b => b.Venue).ToListAsync();
+            }
             Booking = await _context.Booking
                 .Include(b => b.User)
                 .Include(b => b.Venue).Where(x => x.VenueId == venueId).ToListAsync();

@@ -24,10 +24,10 @@ namespace CovidTrackingApp.Data
                 context.User.AddRange(
                     new User
                     {
-                        FirstName ="Vinay",
-                        LastName ="Patel",
-                        Email ="vinay.Patel@hotmail.co.uk",
-                        DateOfBirth = new DateTime(1996,03,25),
+                        FirstName = "Vinay",
+                        LastName = "Patel",
+                        Email = "vinay.Patel@hotmail.co.uk",
+                        DateOfBirth = new DateTime(1996, 03, 25),
                         Address = "23 New Street",
                         City = "London",
                         Postcode = "SW01 3TZ",
@@ -69,7 +69,7 @@ namespace CovidTrackingApp.Data
                         Postcode = "BS01 5ZT",
                         PhoneNumber = "07956691461"
                     }
-                );
+                ) ;
                 context.SaveChanges();
             }
         }
