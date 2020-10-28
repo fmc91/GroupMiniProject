@@ -5,11 +5,6 @@
     ViewData["Title"] = "Index";
 }
 
-@*<h1>All Users</h1>
-
-<p>
-    <a asp-page="Create">Create New User</a>
-</p>*@
 <div style="display:inline">
     <h1 style="float:left">All Users</h1>
     <a class="btn btn-success" style="float:right" asp-page="Create">Create New User</a>
@@ -71,9 +66,10 @@
                 <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
             </td>
             <td>
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
-
                 <a class="btn btn-success" asp-page="../Check-In/Create" asp-route-id="@item.UserId">Book A Venue</a>
+            </td>
+            <td>
+                <a class="btn btn-success" asp-page="../Check-In/Index" asp-route-id="@item.UserId">View Bookings</a>
             </td>
         </tr>
 }
