@@ -1,0 +1,68 @@
+﻿@page
+@model CovidTrackingApp.Pages.Check_In.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<h1>Edit</h1>
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Booking.BookingId" />
+            <div class="form-group">
+                <label asp-for="Booking.UserId" class="control-label"></label>
+                <select asp-for="Booking.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="Booking.UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.VenueId" class="control-label"></label>
+                <select asp-for="Booking.VenueId" class="form-control" asp-items="ViewBag.VenueId"></select>
+                <span asp-validation-for="Booking.VenueId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.ArrivalTime" class="control-label"></label>
+                <input asp-for="Booking.ArrivalTime" class="form-control" />
+                <span asp-validation-for="Booking.ArrivalTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.DepartureTime" class="control-label"></label>
+                <button id="DepartureTime" asp-for="Booking.DepartureTime" class="btn-control">Get Time</button>
+                <input id="DepartureTimeHolder" asp-for="Booking.DepartureTime" class="form-control" />
+                <span asp-validation-for="Booking.DepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.BookingDate" class="control-label"></label>
+                <input asp-for="Booking.BookingDate" class="form-control" />
+                <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+<script>
+    $(
+        function () {
+
+            $('#DepartureTime').click(function () {
+                var time = new Date()
+                $('#DepartureTimeHolder').val(time.toLocaleTimeString());
+            });
+
+        }
+    );
+
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

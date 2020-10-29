@@ -1,0 +1,66 @@
+﻿@page
+@model CovidTrackingApp.Pages.Venues.DetailsModel
+
+@{
+}
+
+<h1>Details</h1>
+<h4>Venue</h4>
+<hr/>
+
+<dl>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.VenueId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.VenueId)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.VenueName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.VenueName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.Capacity)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.Capacity)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.Address)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.Address)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.City)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.City)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.Postcode)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.Postcode)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.PhoneNumber)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.PhoneNumber)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.SelectedVenue.Website)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.SelectedVenue.Website)
+    </dd>
+</dl>
+
+<div class="my-2">
+    <a role="button" class="btn btn-primary" asp-page="edit" asp-route-venueId="@Model.SelectedVenue.VenueId">Edit</a>
+    <a role="button" class="btn btn-danger" asp-page="delete" asp-route-venueId="@Model.SelectedVenue.VenueId">Delete</a>
+</div>
+<a asp-page="index">All venues</a>

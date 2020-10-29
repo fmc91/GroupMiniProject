@@ -1,0 +1,14 @@
+﻿@page
+@model CovidTrackingApp.Pages.Home.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>HomePage</h1>
+<p>Are you a user or venue owner?</p>
+<p>
+    <a class="btn btn-success" asp-page="../UserPages/Index">User</a> |
+    <a class="btn btn-success" asp-page="../Venues/Index">Venue Owner</a>
+</p>
+
