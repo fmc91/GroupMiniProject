@@ -19,7 +19,7 @@
     "CovidTrackingApp": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Venues/Index",
+      "launchUrl": "Home/Index",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -18,11 +18,27 @@ namespace CovidTrackingApp.Pages.Users
             _context = context;
         }
 
+        public bool IsViewFiltered { get; set; }
+
         public IList<User> User { get;set; }
 
         public async Task OnGetAsync()
         {
-            User = await _context.User.ToListAsync();
+            User = await _context.User
+                .OrderBy(u => u.LastName)
+                .ToListAsync();
+        }
+
+        public async Task<IActionResult> OnGetFilterAsync(string name)
+        {
+            User = await _context.User
+                .Where(u => (u.FirstName + ' ' + u.LastName).Contains(name))
+                .OrderBy(u => u.LastName)
+                .ToListAsync();
+
+            IsViewFiltered = true;
+
+            return Page();
         }
     }
 }
