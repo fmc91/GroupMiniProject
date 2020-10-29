@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CovidTrackingApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CovidTrackingApp.Pages.Check_In
 {
@@ -20,13 +21,15 @@ namespace CovidTrackingApp.Pages.Check_In
 
         public IActionResult OnGet(int? id)
         {
-        ViewData["UserId"] = new SelectList(_context.User.Where(u=>u.UserId == id), "UserId", "UserId");
-        ViewData["VenueName"] = new SelectList(_context.Venue, "VenueName", "VenueName");
+        ViewData["UserId"] = new SelectList(_context.User.Where(u=>u.UserId == id), "UserId", "FirstName");
+        ViewData["VenueId"] = new SelectList(_context.Venue, "VenueId", "VenueName");
+            
             return Page();
         }
 
         [BindProperty]
         public Booking Booking { get; set; }
+        
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -40,7 +43,7 @@ namespace CovidTrackingApp.Pages.Check_In
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/UserPages/Bookings", new {UserId = Booking.UserId }) ;
         }
     }
 }
