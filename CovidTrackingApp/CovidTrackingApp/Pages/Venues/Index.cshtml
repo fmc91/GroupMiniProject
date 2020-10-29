@@ -8,6 +8,8 @@
 
 <div class="container">
 
+    <h1>All Venues</h1>
+
     <div class="row mb-2">
         <a role="button" asp-page="create" class="btn btn-success col-sm-2">New Venue</a>
         <form asp-page-handler="filter" method="get" class="col-sm-4 ml-auto">
@@ -18,7 +20,7 @@
         </form>
     </div>
 
-    <table class="table table-striped">
+    <table class="table table-striped justify-content-center">
         <thead class="thead-light">
             <tr>
                 <th>@Html.DisplayNameFor(model => model.Venues[0].VenueName)</th>
@@ -44,7 +46,7 @@
                         <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a>
                     </td>
                     <td>
-                        <a class="btn btn-success" asp-page="../Check-In/Index" asp-route-venueId="@v.VenueId">View Bookings</a>
+                        <a class="btn btn-success" asp-page="/Check-In/Index" asp-route-venueId="@v.VenueId">View Bookings</a>
                     </td>
                 </tr>
             }
@@ -53,6 +55,6 @@
 
     @if (Model.IsViewFiltered)
     {
-        <a role="button" asp-page="index" class="btn btn-outline-secondary mt-2">View All</a> 
+        <a role="button" asp-page="index" class="btn btn-outline-secondary mt-2">View All</a>
     }
 </div>
