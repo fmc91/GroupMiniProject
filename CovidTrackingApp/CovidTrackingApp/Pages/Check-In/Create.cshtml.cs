@@ -21,7 +21,7 @@ namespace CovidTrackingApp.Pages.Check_In
         public IActionResult OnGet(int? id)
         {
         ViewData["UserId"] = new SelectList(_context.User.Where(u=>u.UserId == id), "FirstName", "FirstName");
-        ViewData["VenueName"] = new SelectList(_context.Venue, "VenueName", "VenueName");
+        ViewData["VenueId"] = new SelectList(_context.Venue, "VenueId", "VenueName");
             return Page();
         }
 
