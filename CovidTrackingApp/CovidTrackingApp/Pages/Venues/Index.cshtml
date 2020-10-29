@@ -3,16 +3,20 @@
 @model CovidTrackingApp.Pages.Venues.IndexModel
 
 @{
+    ViewData["Title"] = "Venues";
 }
 
 <div class="container">
 
-    <form asp-page-handler="filter" method="get">
-        <div class="form-row mb-2">
-            <input type="text" placeholder="Venue Name" class="form-control col-3 mr-2" name="venueName"/>
-            <input type="submit" class="btn btn-primary col-1" value="Filter"/>
-        </div>
-    </form>
+    <div class="row mb-2">
+        <a role="button" asp-page="create" class="btn btn-success col-sm-2">New Venue</a>
+        <form asp-page-handler="filter" method="get" class="col-sm-4 ml-auto">
+            <div class="row">
+                <input type="text" placeholder="Venue Name" class="form-control col-sm-9 mr-2" name="venueName" />
+                <input type="submit" class="btn btn-primary col" value="Filter" />
+            </div>
+        </form>
+    </div>
 
     <table class="table table-striped">
         <thead class="thead-light">
@@ -21,7 +25,7 @@
                 <th>@Html.DisplayNameFor(model => model.Venues[0].Capacity)</th>
                 <th>@Html.DisplayNameFor(model => model.Venues[0].Address)</th>
                 <th>@Html.DisplayNameFor(model => model.Venues[0].City)</th>
-                <th>@Html.DisplayNameFor(model => model.Venues[0].Website)</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -34,11 +38,10 @@
                     <td>@Html.DisplayFor(model => v.Capacity)</td>
                     <td>@Html.DisplayFor(model => v.Address)</td>
                     <td>@Html.DisplayFor(model => v.City)</td>
-                    <td>@Html.DisplayFor(model => v.Website)</td>
                     <td>
                         <a asp-page="details" asp-route-venueId="@v.VenueId">Details</a> |
                         <a asp-page="edit" asp-route-venueId="@v.VenueId">Edit</a> |
-                        <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a> |
+                        <a asp-page="delete" asp-route-venueId="@v.VenueId">Delete</a>
                     </td>
                     <td>
                         <a class="btn btn-success" asp-page="../Check-In/Index" asp-route-venueId="@v.VenueId">View Bookings</a>
@@ -47,4 +50,9 @@
             }
         </tbody>
     </table>
+
+    @if (Model.IsViewFiltered)
+    {
+        <a role="button" asp-page="index" class="btn btn-outline-secondary mt-2">View All</a> 
+    }
 </div>

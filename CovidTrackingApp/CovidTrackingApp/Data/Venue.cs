@@ -17,20 +17,24 @@ namespace CovidTrackingApp.Data
         [Display(Name = "Venue ID")]
         public int VenueId { get; set; }
 
+        [Required]
         [Display(Name = "Venue Name")]
         public string VenueName { get; set; }
 
-        [Range(1, 200)]
+        [Range(1, Int32.MaxValue)]
         public int Capacity { get; set; }
 
         [DataType(DataType.Url)]
         public string Website { get; set; }
 
+        [Required]
         public string Address { get; set; }
 
+        [Required]
         public string City { get; set; }
 
-        [RegularExpression(@"^[A-Za-z]{1,2}[0-9]([A-Za-z]|[0-9]) ?[0-9][A-Za-z]{2}$")]
+        [Required]
+        [RegularExpression(@"^[A-Za-z]{1,2}[0-9]([A-Za-z]|[0-9])? ?[0-9][A-Za-z]{2}$", ErrorMessage = "Invalid postcode")]
         public string Postcode { get; set; }
 
         [Display(Name = "Telephone")]
