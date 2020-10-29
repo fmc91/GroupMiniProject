@@ -21,8 +21,8 @@ namespace CovidTrackingApp.Pages.Check_In
 
         public IActionResult OnGet(int? id)
         {
-        ViewData["UserId"] = new SelectList(_context.User.Where(u=>u.UserId == id), "UserId", "FirstName");
-        ViewData["VenueId"] = new SelectList(_context.Venue, "VenueId", "VenueName");
+            ViewData["UserId"] = new SelectList(_context.User.Where(u=>u.UserId == id), "UserId", "FirstName");
+            ViewData["VenueId"] = new SelectList(_context.Venue, "VenueId", "VenueName");
             return Page();
         }
 
@@ -42,7 +42,7 @@ namespace CovidTrackingApp.Pages.Check_In
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/UserPages/Bookings", new {UserId = Booking.UserId }) ;
+            return RedirectToPage("/Check-In/Index", new { UserId = Booking.UserId }) ;
         }
     }
 }

@@ -16,7 +16,6 @@ namespace CovidTrackingApp.Data
         [Display(Name = "Arrival Time")]
         public TimeSpan ArrivalTime { get; set; }
 
-        []
         [Display(Name = "Departure Time")]
         public TimeSpan DepartureTime { get; set; }
         [Display(Name = "Booking Date")]
